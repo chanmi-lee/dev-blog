@@ -6,7 +6,7 @@
 title: Chanmi's Dev Blog
 email: chanmi.kate.lee@gmail.com
 description: A simple and awesome blog theme powered by jekyll.
-url: 
+url:
 keywords: ["blog", "jekyll"]
 
 #
@@ -43,7 +43,7 @@ owner:
   facebook: #username
   google:
     plus: #username
-    analytics:
+    analytics: UA-122657087-1
     verify:
     ad-client:
     ad-slot:
