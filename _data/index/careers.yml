@@ -1,0 +1,17 @@
+# careers section data
+# if you don't have language feature(language.yml is empty), ignore "i18n" items
+# <i class="fa fa-clock-o" aria-hidden="true" title="Until Now"></i>
+- name: Ernst & Young
+  link: https://www.ey.com/kr/ko/home
+  date: May 2017 - Dec 2018
+  job: Software Engineer
+
+- name: Google
+  link: http://www.google.com/
+  date: Aug 2016 - May 2017
+  job: Advertiser Technologist
+
+- name: Accenture
+  link: https://www.accenture.com/
+  date: Jan 2016 - Mar 2016
+  job: Software Developer

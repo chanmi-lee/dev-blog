@@ -1,0 +1,32 @@
+- name: GraphQL with Movie API
+  descr:
+  skills: GraphQL, YTS API
+  github: https://github.com/chanmi-lee/movieql
+
+- name: Personal Website
+  descr: "Archiving for everything"
+  skills: Jekyll, Ruby on Rails, SCSS
+  github: https://chanmi-lee.github.io
+
+- name: LF Mall Project
+  descr: "Implementing and Operating Online e-commerce platform built on Spring framework for handling API request, with JavaScript/jQuery/Thymeleaf."
+  skills: Java (Spring framework), JavaScript, jQuery, Thymeleaf, Oracle, MySQL
+  website: http://lfmall.co.kr
+  article: ../articles/2018-06/LF-Mall-Project
+
+- name: BLS Report Automation
+  descr: "BLS stands for Brand Lift Survey and it's useful tool to measure the impact of online brand campaign with YouTube video ads."
+  skills: Google Apps Script, Google APIs (Slide, Analytics, Adwords, Charts), Chart.js
+  image: ../assets/img/projects/project-bls-report-automation.png
+  article: ../articles/2017-05/BLS-Report-Automation
+
+- name: Vogon
+  descr: "Dynamically embeding text, audio or image within video ads"
+  skills: Python, Google APIs (Adwords, YouTube)
+  image:
+  article: ../articles/2017-04/Vogon 
+
+- name: Smart Connected Ship Project
+  descr: "Connecting information by implementing IoT platform API"
+  skils: Java (Spring framework), JavaScript, jQuery, myBatis, MySQL, SOAP
+  image:

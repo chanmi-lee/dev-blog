@@ -1,0 +1,57 @@
+#
+###################################
+# Site wide configuration
+####################################
+#
+title: Chanmi's Dev Blog
+email: chanmi.kate.lee@gmail.com
+description: A simple and awesome blog theme powered by jekyll.
+url: chanmi-lee.github.io
+keywords: ["blog", "jekyll"]
+
+#
+###################################
+# Jekyll configuration
+####################################
+#
+timezone:          Asia/Seoul
+markdown:          kramdown
+highlighter:       rouge
+excerpt_separator: <!--more-->
+permalink:         /articles/:year-:month/:title
+
+kramdown:
+  auto_ids: true
+  footnote_nr: 1
+  entity_output: as_char
+  toc_levels: 1..5
+  enable_coderay: false
+
+#
+###################################
+# Site Owner configuration
+####################################
+#
+owner:
+  name: Chanmi
+  avatar: chanmi_logo.jpg
+  job: "Software Engineer * Seoul"
+  bio: "Always open to new challenges"
+  email: chanmi.kate.lee@gmail.com
+  disqus-shortname: chanmi-lee
+  twitter: Kate75341866
+  facebook: #username
+  google:
+    plus: #username
+    analytics:
+    verify:
+    ad-client:
+    ad-slot:
+  bing-verify:
+  github: chanmi-lee
+  gitlab: #username
+  stackoverflow: #123456/username   from a "http://stackoverflow.com/users/123456/username" link
+  linkedin: chanmi-kate-lee
+  skype: #username
+  instagram: chanmi.kate.lee
+  youtube: #username
