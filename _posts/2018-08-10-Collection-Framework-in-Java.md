@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Java - Collection Framework"
+excerpt: "Java Collection framework를 통해 Data Structure 이해하기"
 categories: [Java]
 share: true
 comments: true
