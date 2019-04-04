@@ -1,3 +1,11 @@
+---
+layout: post
+title: "Java - Collection Framework"
+categories: [Java]
+share: true
+comments: true
+---
+
 > #### Collection framework
 * * *
 
@@ -31,21 +39,6 @@ while(iter.hasNext()) {
   System.out.println(iter.next());
 }
 ```
-
-**HashMap** <br />
-key-value 쌍으로 이루어진다. <br />
-검색과 삽입에 O(1) 시간이 소요된다. <br />
-키를 기준으로 순회할 때 키의 순서는 무작위로 섞여있다.
-
-> Q2-1. TreeMap, HashMap, LinkedHashMap의 차이?
-
-세 가지 모두 key-value의 대응 관계가 있고, key를 기준으로 순회(iterate) 가능하다. <br />
-시간 복잡도와 키가 놓이는 순서에 차이가 있다.
-
-| HashMap | Tree Map | LinkedHashMap |
-| ---- | ---- | ---- |
-| 검색/삽입에 O(1) | 검색/삽입에 O(logN) | 검색/삽입에 O(1) |
-| 키 순서 무작위 | 정렬된 순서로 키 순회 가능 | 키는 삽입된 순서대로 정렬 <br /> 양방향 연결 버킷(double-linked bucket)으로 구현 |
 
 
 **Stack** <br />
@@ -102,5 +95,22 @@ FIFO (First-In-First-Out) like 매표소 줄
 - ```remove()```: 리스트의 첫 번째 항목 제거
 - ```peek()```: 가장 위에 있는 항목 반환
 - ```isEmpty()```: 큐가 비어있을 때 true 반환
+
+* * *
+
+**HashMap** <br />
+key-value 쌍으로 이루어진다. <br />
+검색과 삽입에 O(1) 시간이 소요된다. <br />
+키를 기준으로 순회할 때 키의 순서는 무작위로 섞여있다.
+
+> Q2-1. TreeMap, HashMap, LinkedHashMap의 차이?
+
+세 가지 모두 key-value의 대응 관계가 있고, key를 기준으로 순회(iterate) 가능하다. <br />
+시간 복잡도와 키가 놓이는 순서에 차이가 있다.
+
+| HashMap | Tree Map | LinkedHashMap |
+| ---- | ---- | ---- |
+| 검색/삽입에 O(1) | 검색/삽입에 O(logN) | 검색/삽입에 O(1) |
+| 키 순서 무작위 | 정렬된 순서로 키 순회 가능 | 키는 삽입된 순서대로 정렬 <br /> 양방향 연결 버킷(double-linked bucket)으로 구현 |
 
 * * *
