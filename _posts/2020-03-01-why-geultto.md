@@ -15,7 +15,7 @@ comments: true
 
 ![geultto-wanted]({{ site.url }}/assets/img/posts/geultto-wanted.jpg)
 
-### Okay Geultto, show me the ~money~ way
+### Okay Geultto, show me the <del>money</del> way
 
 > 달인이 되는 비결은 매우 단순합니다. 매일 세수하고 양치하듯이 **꾸준하게 반복하는 것** 이 바로 그것입니다.
 
