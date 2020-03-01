@@ -7,13 +7,15 @@ share: true
 comments: true
 ---
 
+![geultto]({{ site.url }}/assets/img/posts/geultto4.png){: width="50%" height="50%"}
+
 ## 글 (잘쓰고 싶은) 또(라이)
 
 `퇴사`로 시작한 나의 2019년은 예상보다 긴 자유 시간이 주어졌고, 덕분에 수많은 면접을 경험하며 나의 지식의 밑바닥과 동시에 성장할 수 있는 가능성을 발견할 수 있었습니다. 생각치 않던 길에 들어선 지 벌써 햇수로 4년차에 들어서니 아무 것도 모르던 상태에서 이제는 아는 것과 모르는 것을 어느 정도는 ~이라고 믿고 싶다~ 구분하는 단계에 막 한 걸음 내딛은 듯 합니다.
 
 새로운 회사의 새로운 팀에서 새로운 업무를 하다보니 마치 다시 신입 때로 돌아간 듯 합니다. 그러나 신입이 아닌 경력으로의 시작이라 *어떻게 하면 최대한 빠르고 효율적으로 1인분을 해낼 수 있을까?* 는 질문으로 긴장감 있는 하루를 시작하고 끝내곤 했습니다. 그렇게 우왕좌왕하다보니 또 해가 바뀌고 반년이 훌쩍 지나 2020년이 되었습니다.
 
-![geultto-wanted]({{ site.url }}/assets/img/posts/geultto-wanted.jpg)
+![geultto-wanted]({{ site.url }}/assets/img/posts/geultto-wanted.jpg){: width="50%" height="50%"}
 
 ### Okay Geultto, show me the <del>money</del> way
 
