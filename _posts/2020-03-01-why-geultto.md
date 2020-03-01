@@ -13,13 +13,13 @@ comments: true
 
 새로운 회사의 새로운 팀에서 새로운 업무를 하다보니 마치 다시 신입 때로 돌아간 듯 합니다. 그러나 신입이 아닌 경력으로의 시작이라 *어떻게 하면 최대한 빠르고 효율적으로 1인분을 해낼 수 있을까?* 는 질문으로 긴장감 있는 하루를 시작하고 끝내곤 했습니다. 그렇게 우왕좌왕하다보니 또 해가 바뀌고 반년이 훌쩍 지나 2020년이 되었습니다.
 
-![geultto-wanted]({{ site.url }}/assets/img/post/geultto-wanted.jpg)
+![geultto-wanted]({{ site.url }}/assets/img/posts/geultto-wanted.jpg)
 
 ### Okay Geultto, show me the ~money~ way
 
 > 달인이 되는 비결은 매우 단순합니다. 매일 세수하고 양치하듯이 **꾸준하게 반복하는 것** 이 바로 그것입니다.
 
-< :seedling: 함께 자라기 - 구종만>
+< 🌱 함께 자라기 - 구종만>
 
 꾸준한 반복으로 달인이 되려면 적어도,
 
@@ -50,20 +50,22 @@ comments: true
 
 그렇다면 좀 더 구체적으로 앞으로 주어진 6개월 동안 무엇을 해야할까?
 
-:memo: 삽질 후기 및 해결방안 공유
+📝 삽질 후기 및 해결방안 공유
   - 최근 새로운 회사로 이직하며, 새로운 팀에서 새로운 도메인 그리고 새로운 기술 스택을 경험하고 있습니다. 때문에, 새롭고 모호한 것들의 연속인지라 어디까지 알고 어디까지 모르는지에 대한 분명한 인지를 글로 남기고자 합니다. 적어도 같은 실수를 반복하지 않는, 지금보다 나아질 내가 되기 위해 오늘의 삽질을 기록!
 
-:books: ~집에서 잠자고 있는~ 개발 관련 서적 학습 정리용 글
+📚 ~집에서 잠자고 있는~ 개발 관련 서적 학습 정리용 글
   - 자바스크립트 완벽 가이드, 함수형 자바스크립트 프로그래밍, HTTP 완벽 가이드, Object, Clean Code, TDD ... 장식은 그만! 물론 그 때 그 때 필요한 내용들만 발췌하여 참고하긴 하나 그래도 전체적으로 훑어볼 필요가 있지 않을까.
 
-:microphone: 컨퍼런스 참여 후기 (Hopefully... Coronavirus OUT :boom:)
-  - 주로 [9XD](https://www.facebook.com/groups/9xdevelopers/), [WWCode (Women Who Code)](https://www.facebook.com/groups/wwcodeseoul), [프론트엔드개발그룹](https://www.facebook.com/groups/webfrontend/) 과 같은 Facebook Group나 [Festa](https://festa.io) 와 같은 사이트에서 행사 피드를 확인합니다. 코로나의 영향으로 오프라인 행사는 대부분 취소나 무기한 연장되어 얼마나 참여할 수 있을진 모르겠지만... :cry:
+🎤 컨퍼런스 참여 후기 (Hopefully... ❌Coronavirus OUT❌)
+  - 주로 [9XD](https://www.facebook.com/groups/9xdevelopers/), [WWCode (Women Who Code)](https://www.facebook.com/groups/wwcodeseoul), [프론트엔드개발그룹](https://www.facebook.com/groups/webfrontend/) 과 같은 Facebook Group나 [Festa](https://festa.io) 와 같은 사이트에서 행사 피드를 확인합니다. 코로나의 영향으로 오프라인 행사는 대부분 취소나 무기한 연장되어 얼마나 참여할 수 있을진 모르겠지만... 😢
 
-:memo: 2020 상반기 회고 후기
+✏️ 2020 상반기 회고 후기
   - 그래서 나는 얼마나 열심히 무지의 상태에서 벗어나고자 노력했는지? 되돌아보기
 
 ---
 
-:pushpin: [글또 GuideBook - Notion](https://bit.ly/geultto)
+🔗 글또에 대해 더 알고 싶나요?
 
-:pushpin: [글또 Facebook Group](https://www.facebook.com/groups/geultto/)
+📌 [글또 GuideBook - Notion](https://bit.ly/geultto)
+
+📌 [글또 Facebook Group](https://www.facebook.com/groups/geultto/)
