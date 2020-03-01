@@ -7,7 +7,7 @@ share: true
 comments: true
 ---
 
-![geultto]({{ site.url }}/assets/img/posts/geultto4.png){: width="50%" height="50%"}
+![geultto]({{ site.url }}/assets/img/posts/geultto4.png){: width="10%" height="10%"}
 
 ## 글 (잘쓰고 싶은) 또(라이)
 
@@ -15,7 +15,7 @@ comments: true
 
 새로운 회사의 새로운 팀에서 새로운 업무를 하다보니 마치 다시 신입 때로 돌아간 듯 합니다. 그러나 신입이 아닌 경력으로의 시작이라 *어떻게 하면 최대한 빠르고 효율적으로 1인분을 해낼 수 있을까?* 는 질문으로 긴장감 있는 하루를 시작하고 끝내곤 했습니다. 그렇게 우왕좌왕하다보니 또 해가 바뀌고 반년이 훌쩍 지나 2020년이 되었습니다.
 
-![geultto-wanted]({{ site.url }}/assets/img/posts/geultto-wanted.jpg){: width="50%" height="50%"}
+![geultto-wanted]({{ site.url }}/assets/img/posts/geultto-wanted.jpg){: width="20%" height="20%"}
 
 ### Okay Geultto, show me the <del>money</del> way
 
