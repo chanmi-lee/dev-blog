@@ -7,11 +7,13 @@ share: true
 comments: true
 ---
 
+![browsers]({{ site.url }}/assets/img/posts/browsers.JPG)
+
 ### 웹 표준 (Web Standard)
 
 빠르게 변하는 기술의 영향으로, PC와 모바일, 태블릿 등 유저가 사용하는 기기의 종류와 IE, Chrome, Firefox, Safari 등 기기에서 사용하는 웹 브라우저도 다양해지고 있습니다.
 
-`W3C`의 정의에 따르면, **웹 표준**(`Web Standard`)은 *접근성, 사생활 보호, 보안, 국제화의 측면* 에서 고려해야 한다고 합니다. 이 중 접근성을 흔히 `웹 접근성(Web Accessibility or A11y)`이라고 하며 신체적 차이나 장애 여부와 상관없이 누구나 원활하게 웹 페이지를 이용할 수 있어야 함을 의미합니다. 키보드만으로도 이용이 가능하도록 하는 `Skip Navigation`, 텍스트가 아닌 콘텐츠 인식을 위한 `대체 텍스트 제공` 등의 기능을 대표적인 예로 들 수 있습니다.
+`W3C`의 정의에 따르면, **웹 표준**(`Web Standard`)은 *접근성, 사생활 보호, 보안, 국제화의 측면* 에서 고려해야 한다고 합니다. 이 중 접근성을 흔히 **웹 접근성**(`Web Accessibility or A11y`)이라 하며, 신체적 차이나 장애 여부와 상관없이 누구나 원활하게 웹 페이지를 이용할 수 있어야 함을 의미합니다. 키보드만으로도 이용이 가능하도록 하는 `Skip navigation`, 텍스트가 아닌 콘텐츠 인식을 위한 `대체 텍스트 제공(alt)` 등의 기능을 대표적인 예로 들 수 있습니다.
 
 웹 사이트나 웹 페이지가 **웹 표준**(`Web Standard`)을 준수한다는 것은, 일반적으로 *올바른 HTML, CSS, JavaScript를 사이트나 페이지가 가지고 있다* 는 것을 뜻합니다.
 
@@ -23,6 +25,8 @@ comments: true
 - 다수의 유저가 사용하는 환경 정보를 기반으로 `지원 브라우저 범위를 파악`한다
 - <del>거의</del> 모든 환경에서 지원해야 한다면, <del>사실 크게 추천하고 싶진 않지만</del> 브라우저마다 동작 할 수 있는 코드를 작성하거나 혹은 `범용성 있는 라이브러리`를 택한다 (ex- Polyfill, Transpiler)
 
+---
+
 ### Cross Browsing, 어디까지 맞춰야 할까?
 
 > Cross Browsing의 목표는 완벽한 호환성에 두는 것이 아니라, 이종 웹브라우저에서 사용되는 비호환 및 비표준 구현 방식과 기법들을 가능한 표준안에서 수용할 수 있는 방법을 찾는 것이다.
@@ -32,7 +36,9 @@ comments: true
 
 ![class-browser-compatibility]({{ site.url }}/assets/img/posts/class-browser-compatibility.JPG)
 
-이처럼 피할 수 없는 `Cross Browsing issue`를 어디까지 맞춰야 할까? 라는 질문에는 사실 명확한 답보단 각 상황에 맞는 답이 있다고 생각합니다. `우리 사이트는 IE10 버전 이상만 지원합니다!` 혹은 `크롬에 최적화되어 있습니다!` 라는 메시지를 노출하는 소극적인 대처 방안도 있겠지만, 가능하다면 모든 환경에서 동일한 내용과 기능이 구현될 수 있도록 대응하는 점진적인 노력이 수반되어야 하지 않을까 싶습니다.
+이처럼 피할 수 없는 `Cross Browsing issue`를 어디까지 맞춰야 할까? 라는 질문에는 사실 명확한 답보단 각 상황에 맞는 답이 있다고 생각합니다. `우리 사이트는 IE10 버전 이상만 지원합니다!` 혹은 `크롬에 최적화되어 있습니다!` 라는 메시지를 노출하는 소극적인 대처 방안도 있겠지만, 가능하다면 **모든 환경에서 동일한 내용과 기능이 구현될 수 있도록 대응하는 점진적인 노력** 이 수반되어야 하지 않을까 싶습니다.
+
+---
 
 ### 흔히 마주하는 오류들과 그 해결방안
 
@@ -77,7 +83,7 @@ if (!String.prototype.includes) {
 
 ![ie-does-not-support-method]({{ site.url }}/assets/img/posts/ie-does-not-support-method.JPG)
 
-또한 구글링 외에도, [MDN](https://developer.mozilla.org/)이나 [Can I use](https://caniuse.com/)에서 확인을 원하는 함수를 키워드로 검색해보면 한 눈에 브라우저 버전별 호환성을 확인할 수 있습니다.
+또한 구글링 외에도, [MDN](https://developer.mozilla.org/)이나 [Can I use](https://caniuse.com/)에서 확인을 원하는 함수를 키워드로 검색해보면 한 눈에 각 브라우저 버전별 호환성을 확인할 수 있습니다.
 
 ![can-i-use-includes]({{ site.url }}/assets/img/posts/can-i-use-includes.JPG)
 
