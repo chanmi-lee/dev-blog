@@ -9,11 +9,11 @@ comments: true
 
 ### Higher-Order Component?
 
-HOC는 컴포넌트 로직을 사용하기 위한 리트의 고급 기법입니다.
+HOC는 컴포넌트 로직을 사용하기 위한 리액트의 고급 기법입니다.
 HOC는 그 자체로 리액트 API는 아닙니다.
 리액트의 구성 방식으로부터 파생된 패턴이라고 이해할 수 있습니다.
 
-구체적으로, HOC는 컴포넌트를 파라미터로 받아 새로운 컴포넌트로 돌려주는 하나의 함수라고 이해할 수 있습니다.
+구체적으로, HOC는 컴포넌트를 파라미터로 받아 이를 새로운 컴포넌트로 돌려주는 하나의 함수라고 이해할 수 있습니다.
 
 ```
 const EnhancedComponent = higherOrderComponent(WrappedComponent);
@@ -31,12 +31,12 @@ HOC는 3rd party 라이브러리에서 흔히 찾아볼 수 있는데, 대표적
 
 > 이전에는 관심사의 분리(cross-cutting concerns)을 다루기 위한 방법으로 `mixins`을 사용하길 권장하였습니다. 
 > 그러나, 이 방법이 다소 많은 문제점을 야기한다는 것을 알게 되었습니다.
-> [링크](https://reactjs.org/blog/2016/07/13/mixins-considered-harmful.html) 를 참고하시면, 왜 우리가 mixins로부터 벗어나야 하며 어떻게 기존의 컴포넌트를 변화시킬 수 있는지 이해하는데 도움이 될 것입니다.
+> [링크](https://reactjs.org/blog/2016/07/13/mixins-considered-harmful.html) 를 참고하시면, 왜 우리가 mixins를 지양해야하며 어떻게 기존 컴포넌트를 변화시킬 수 있는지 이해하는데 도움이 될 것입니다.
 
 리엑트에서 컴포넌트는 코드를 재사용하는 주요한 코드의 단위입니다.
-그러나, 다음의 패턴들은 컴포넌트를 사용하는데 맞지 않음을 알 수 있습니다.
+그러나, 다음의 패턴들은 일반적으로 컴포넌트를 사용하는데 맞지 않음을 알 수 있습니다.
 
-예를 들어, 댓글 목록을 렌더링하는데 외부 리소스를 subscribe하는 `CommentList`라는 컴포넌트가 있다고 합시다.
+예를 들어, 댓글 목록을 렌더링하기 위해 외부 리소스를 subscribe하는 `CommentList`라는 컴포넌트가 있다고 합시다.
 
 ```
 class CommentList extends React.Component {
@@ -78,7 +78,7 @@ class CommentList extends React.Component {
   }
 ```
 
-또한, 하나의 포스트를 위한 같은 패턴을 가진 `BlogPost`라는 이름 컴포넌트를 작성합니다.
+또한, 같은 패턴을 가지며 하나의 포스트를 위한 `BlogPost`라는 이름 컴포넌트를 작성합니다.
 
 ```
 class BlogPost extends React.Component {
@@ -110,8 +110,8 @@ class BlogPost extends React.Component {
 }
 ```
 
-`CommentList`와 `BlogPost`는 다른 DataSource를 참조하는 메소드를 호출한다는 점과 다른 결과물을 렌더링한다는 점에서는 완전히 동일하지는 않습니만,
-다음 공통점이 있습니다.
+`CommentList`와 `BlogPost`는 써로 다른 DataSource를 참조하는 메소드를 호출한다는 점과 다른 결과물을 렌더링한다는 점에서는 완전히 동일하지는 않습니만,
+다음의 공통점이 있습니다.
 
 - 마운트될 때(componentDidMount), DataSource로의 change listener를 추가한다.
 - 리스너 내부에, 데이터가 변경될 때마다 setState를 호출한다 (handleChange).
@@ -142,9 +142,8 @@ const BlogPostWithSubscription = withSubscription(
 );
 ```
 
-`CommentList`와 `BlogPost`와 같이 DataSource를 참조하는 컴포넌트를 생성하는 함수를 작성하였습니.
+`CommentList`와 `BlogPost`와 같이 DataSource를 참조하는 컴포넌트를 생성하는 함수를 작성하였습니다.
 이 함수는 참조하는 데이터를 props로 컴포넌트에 전달하며 이를 함수의 인자(argument)로 받습니다.
-다
 
 첫 번째 파라미터는 감싸진 컴포넌트(Wrapped component) 입니다.
 두 번째 파라미터는 우리가 알고자 하는 데이터로 이를 DataSource로 받아와 props로 넘겨줍니다.
