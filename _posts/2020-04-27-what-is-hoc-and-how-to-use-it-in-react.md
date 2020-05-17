@@ -13,7 +13,7 @@ HOC는 컴포넌트 로직을 사용하기 위한 React의 고급 기법입니�
 HOC는 그 자체로 React API는 아닙니다.
 React의 구성 방식으로부터 파생된 패턴이라고 이해할 수 있습니다.
 
-구체적으로, HOC는 컴포넌트를 파라미터로 받아 이를 새로운 컴포넌트로 돌려주는 하나의 함수라고 이해할 수 있습니다.
+구체적으로 HOC는 컴포넌트를 파라미터로 받아 이를 새로운 컴포넌트로 돌려주는 하나의 함수라고 이해할 수 있습니다.
 
 ```
 const EnhancedComponent = higherOrderComponent(WrappedComponent);
@@ -21,9 +21,9 @@ const EnhancedComponent = higherOrderComponent(WrappedComponent);
 
 HOC를 통하여 컴포넌트에 특정 기능을 부여할 수 있습니다.
 컴포넌트는 props를 변형하여 UI에 넘기는 것과 달리, HOC는 컴포넌트를 변형하여 이를 또 다른 컴포넌트에 넘겨줍니다.
-HOC는 3rd party 라이브러리에서 흔히 찾아볼 수 있는데, 대표적인 예로는 Redux의 [connect](https://github.com/reduxjs/react-redux/blob/master/docs/api/connect.md#connect)와 Relay의 [createFragmentContainer](http://facebook.github.io/relay/docs/en/fragment-container.html)가 있습니다.
+HOC는 3rd party 라이브러리에서 흔히 찾아볼 수 있는데 대표적인 예로는 Redux의 [connect](https://github.com/reduxjs/react-redux/blob/master/docs/api/connect.md#connect)와 Relay의 [createFragmentContainer](http://facebook.github.io/relay/docs/en/fragment-container.html)가 있습니다.
 
-이제부터는, HOC가 유용한 이유와, 어떻게 HOC를 작성할 수 있는지 알아보고자 합니다.
+이제부터는 HOC가 유용한 이유와 어떻게 HOC를 작성할 수 있는지 알아보고자 합니다.
 
 ---
 
@@ -124,8 +124,8 @@ class BlogPost extends React.Component {
 
 HOC의 이름을 만들 땐, `with____` 형식으로 짓습니다.
 
-HOC의 원리는, 파라미터로 컴포넌트를 받아오고, 함수 내부에서 새 컴포넌트를 만든 다음에 해당 컴포넌트 안에서 파라미터로 받아온 컴포넌트를 렌더링하는 것입니다.
-그리고 자신이 받아온 props들은 그대로 파라미터로 받아온 컴포넌트에게 다시 주입해주고, 필요에 따라 추가 props도 넣어줍니다.
+HOC의 원리는 파라미터로 컴포넌트를 받아오고 함수 내부에서 새 컴포넌트를 만든 다음에 해당 컴포넌트 안에서 파라미터로 받아온 컴포넌트를 렌더링하는 것입니다.
+그리고 자신이 받아온 props들은 그대로 파라미터로 받아온 컴포넌트에게 다시 주입해주고 필요에 따라 추가 props도 넣어줍니다.
 
 우선 HOC의 틀을 작성해보겠습니다.
 
@@ -192,8 +192,8 @@ HOC는 원래의 컴포넌트를 변형하지 않을 뿐 아니라, 상속을 �
 
 그게 다입니다!
 
-감싸진 컴포넌트는 컨테이너의 모든 props를 받아와, 새로운 props (위의 예시에서는 data)와 함께 새로운 결과를 렌더링합니다.
-HOC는 어떻게 혹은 왜 데이터가 쓰이는지 관심이 없고, 감싸진 컴포넌트는 데이터가 어디로부터 오는지 직접 알 필요가 없습니다.
+감싸진 컴포넌트는 컨테이너의 모든 props를 받아와 새로운 props (위의 예시에서는 data)와 함께 새로운 결과를 렌더링합니다.
+HOC는 어떻게 혹은 왜 데이터가 쓰이는지 관심이 없고 감싸진 컴포넌트는 데이터가 어디로부터 오는지 직접 알 필요가 없습니다.
 
 ---
 
