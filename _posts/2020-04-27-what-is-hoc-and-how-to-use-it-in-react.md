@@ -197,6 +197,97 @@ HOC는 어떻게 혹은 왜 데이터가 쓰이는지 관심이 없고 감싸진
 
 ---
 
+💡 Caveats
+
+HOC를 사용할 때 아래의 내용을 주의해야 합니다.
+
+> render 메소드 내에서 HOC를 사용하지 말 것
+
+React의 diffing algorithm (혹은 reconciliation라고 불린다) 은 기존의 컴포넌트를 그대로 사용할 지 혹은 새로 마운트 할 지 결정하는데 사용됩니다.
+`render` 메소드로 반환된 컴포넌트가 기존의 것과 동일하다면, React는 재귀적으로 subtree를 업데이트 합니다. 만약 동일하지 않다면, 기존의 subtree를 완전히 날려버립니다.
+
+일반적으로 이 내용에 대해 고민할 필요는 없습니다. 하지만 컴포넌트의 render 메소드에 HOC를 사용하는 경우는 다릅니다.
+
+```
+render() {
+  // A new version of EnhancedComponent is created on every render
+  // EnhancedComponent1 !== EnhancedComponent2
+  const EnhancedComponent = enhance(MyComponent);
+  // That causes the entire subtree to unmount/remount each time!
+  return <EnhancedComponent />;
+}
+```
+
+여기서 문제는 단순히 성능에만 있지 않습니다. 컴포넌트를 remount할 때 컴포넌트의 state와 모든 자식 컴포넌트 또한 영향을 받습니다.
+
+대신 컴포넌트의 밖에 HOC를 적용하면 결과적으로 컴포넌트는 단 한 번만 생성됩니다.
+드문 경우지만 HOC를 동적으로 적용할 필요가 있는 경우, 컴포넌트의 생명 주기 메소드 혹은 생성자(constructor)에 적용하는 방법도 있습니다.
+
+> Static method는 복제된다
+
+가끔 컴포넌트에 static method를 정의하는 것이 유용할 때가 있습니다.
+
+컴포넌트에 HOC를 적용할 때, 기존의 컴포넌트는 컨테이너 컴포넌트에 의해 감싸집니다.
+이는 새로운 컴포넌트는 기존 컴포넌트가 가진 어떠한 static method도 가지지 못함을 의미합니다.
+
+```
+// Define a static method
+WrappedComponent.staticMethod = function() {/*...*/}
+// Now apply a HOC
+const EnhancedComponent = enhance(WrappedComponent);
+
+// The enhanced component has no static method
+typeof EnhancedComponent.staticMethod === 'undefined' // true
+```
+
+이를 해결하기 위해서는, 기존의 컴포넌트를 돌려주기 전에 컨테이너 컴포넌트에서 메소드를 복제해줘야 합니다.
+
+```
+function enhance(WrappedComponent) {
+    class Enhance extends React.Component {/*...*/}
+    // Must know excatly which method(s) to copy :(
+    Enhance.staticMethod = WrappedComponent.staticMethod;
+    return Enhance;
+}
+```
+
+그러나 이는 정확히 어떤 메소드를 복제해줘야 할 지 알아야 함을 의미합니다.
+`hoist-non-react-statics` 를 사용하면 자동으로 모든 non-React static method를 복제할 수도 있습니다.
+
+```
+import hoistNonReactStatic from 'hoist-non-react-statics';
+function enhance(WrappedComponent) {
+  class Enhance extends React.Component {/*...*/}
+  hoistNonReactStatic(Enhance, WrappedComponent);
+  return Enhance;
+}
+```
+
+또 다른 방법으로는 컴포넌트로부터 별도로 static method를 export하는 방법도 있습니다.
+
+```
+// Instead of...
+MyComponent.someFunction = someFunction;
+export default MyComponent;
+
+// ...export the method separately...
+export { someFunction };
+
+// ...and in the consuming module, import both
+import MyComponent, { someFunction } from './MyComponent.js';
+```
+
+> Refs는 전달되지 않는다
+
+HOC는 WrappedComponent에 모든 props를 전달하지만, refs는 전달되지 않습니다.
+`ref`는 실제로 prop가 아니기 때문입니다. (React에서 `key`와 같이 특별하게 다뤄지는 속성이라고 이해할 수 있습니다.)
+
+이를 해결하기 위한 방법으로 `React.forwardRef` API (React 16.3 버전 이후 지원)을 사용할 수 있습니다.
+
+- [ForwardRef](https://reactjs.org/docs/forwarding-refs.html)
+
+---
+
 🔗 참조
 
 📌 [Higher Order Component in React](https://reactjs.org/docs/higher-order-components.html)
