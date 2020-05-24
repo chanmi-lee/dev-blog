@@ -48,7 +48,7 @@ new Function (arg1, arg2, ... argN, functionBody)
 앞에서 설명한 두 방식이 함수 리터럴 방식으로 함수를 생성하지만, 내부적으로는 Function() 생성자 함수로 함수가 생성된다.
 하지만 일반적으로 Function() 생성자 함수를 사용한 함수 생성 방법은 권장되지 않는다.
 
-![function-in-javascript]({{ site.url }}/assets/img/posts/function-in-javascript.png)
+![function-in-javascript]({{ site.url }}/assets/img/posts/function-in-javascript.png){: width="40%" height="40%"}
 
 ### 일급 객체
 
@@ -94,23 +94,6 @@ var foo = function () {
 }
 ```
 
-### 함수 객체의 속성과 메서드
-
-함수는 객체이며 함수 객체만의 표준 프로퍼티가 정의되어 있다.
-
-- `arguments` : 현재 실행중인 함수에 전달된 인수를 포함하는 배열 같은 객체
-- `caller` : 현재 실행 중인 함수를 호출한 함수
-- `name` : 함수의 이름을 나타내며, 만약 이름이 없는 익명 함수라면 빈 문자열이 된다
-- `_proto_` : 모든 자바스크립트의 객체는 자신의 프로토타입을 가리키는 [[Prototype]]이라는 내부 프로퍼티를 가지고 있다. 크롬 브라우저에서는 [[Prototype]]이라는 내부 프로퍼티가 `_proto_`로 구현되어 있어, 같은 개념이라고 생각하면 된다.
-
-- `length` : ECMAScript에서 정한 모든 함수가 가져야 하는 표준 프로퍼티로, 함수가 정상적으로 실행될 때 기대되는 인자의 개수
-- `prototype` : 모든 함수는 `Function` 객체이며 `Function.prototype`에서 메서드 및 속성을 상속받는다.
-
-앞서 언급한 모든 객체의 부모를 나타내는 내부 프로퍼티인 [[Prototype]]과 혼동하지 말아야 한다.
-두 프로퍼티 모두 **프로토타입 객체**를 가리킨다는 점에서는 공통점이 있다.
-그러나, [[Prototype]]은 객체 입장에서 자신의 부모 역할을 하는 프로토타입 객체를 가리키는 반면,
-함수 객체가 가지는 prototype 프로퍼티는 함수가 생성될 때 만들어지며, 단지 constructor 프로퍼티 하나만 있는 객체를 가리킨다.
-
 ### 함수의 다양한 형태
 
 > 콜백 함수 (Callback function)
@@ -153,14 +136,32 @@ a = addSquare(2, 3);    // return 13
 b = addSquare(3, 4);    // return 25
 ```
 
+### 함수 객체의 속성과 메서드
+
+함수는 객체이며 함수 객체만의 표준 프로퍼티가 정의되어 있다.
+
+- `arguments` : 현재 실행중인 함수에 전달된 인수를 포함하는 배열 같은 객체
+- `caller` : 현재 실행 중인 함수를 호출한 함수
+- `name` : 함수의 이름을 나타내며, 만약 이름이 없는 익명 함수라면 빈 문자열이 된다
+- `_proto_` : 모든 자바스크립트의 객체는 자신의 프로토타입을 가리키는 [[Prototype]]이라는 내부 프로퍼티를 가지고 있다. 크롬 브라우저에서는 [[Prototype]]이라는 내부 프로퍼티가 `_proto_`로 구현되어 있어, 같은 개념이라고 생각하면 된다.
+- `length` : ECMAScript에서 정한 모든 함수가 가져야 하는 표준 프로퍼티로, 함수가 정상적으로 실행될 때 기대되는 인자의 개수
+- `prototype` : 모든 함수는 `Function` 객체이며 `Function.prototype`에서 메서드 및 속성을 상속받는다.
+
+앞서 언급한 모든 객체의 부모를 나타내는 내부 프로퍼티인 [[Prototype]]과 혼동하지 말아야 한다.
+두 프로퍼티 모두 **프로토타입 객체**를 가리킨다는 점에서는 공통점이 있다.
+그러나, [[Prototype]]은 객체 입장에서 자신의 부모 역할을 하는 프로토타입 객체를 가리키는 반면,
+함수 객체가 가지는 prototype 프로퍼티는 함수가 생성될 때 만들어지며, 단지 constructor 프로퍼티 하나만 있는 객체를 가리킨다.
+
+
+
 ---
 
 🔗 참조
 
-📌 [JavaScript Function | MDN](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Functions)
+📌 [JavaScript Function :: MDN](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Functions)
 
-📌 [Function Statement | MDN](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Statements/function)
+📌 [Function Statement :: MDN](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Statements/function)
 
-📌 [Function Object | MDN](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Function)
+📌 [Function Object :: MDN](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Function)
 
-📌 [proto vs prototype in javascript | Stackoverflow](https://stackoverflow.com/questions/9959727/proto-vs-prototype-in-javascript)
+📌 [proto vs prototype in javascript :: Stackoverflow](https://stackoverflow.com/questions/9959727/proto-vs-prototype-in-javascript)
