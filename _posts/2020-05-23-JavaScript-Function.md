@@ -8,7 +8,7 @@ comments: true
 ---
 
 자바스크립트에서 가장 중요한 개념 중 하나는 함수이다.
-자바스크립트에서 함수는 Object, Array등의 다른 일반 객체처럼 값으로 취급되며 속성 및 메서드를 가질 수 있어 일급(first-class) 객체이다.
+자바스크립트에서 함수는 Arrays 등의 다른 일반 객체처럼 값으로 취급되며 속성 및 메서드를 가질 수 있어 일급(first-class) 객체이다.
 다른 객체와 달리 함수는 호출될 수 있으며, 기본값(`this` or `undefined`) 이외의 값을 반환하는 경우 `return` 문으로 값을 지정하여 반환한다.
 
 ### 함수 정의 
@@ -116,7 +116,10 @@ window.onload = function() {
 ```
 (function (name) {
     console.log('This is the immediate function', name);
-})('foo');
+})();
+
+// ES6
+((name) => console.log('This is the immediate function', name))();
 ```
 
 > 내부 함수 (Inner function)
@@ -136,22 +139,67 @@ a = addSquare(2, 3);    // return 13
 b = addSquare(3, 4);    // return 25
 ```
 
+> 화살표 함수 (Arrow function)
+
 ### 함수 객체의 속성과 메서드
 
-함수는 객체이며 함수 객체만의 표준 프로퍼티가 정의되어 있다.
+`Function` 객체는 자신만의 메서드 또는 속성이 없다.
+그러나, 그 자체로 함수이기에 `Function.prototype` 에서 프로토타입 체인을 통해 일부 메서드 및 속성을 상속받는다.
 
-- `arguments` : 현재 실행중인 함수에 전달된 인수를 포함하는 배열 같은 객체
+> 참고: `프로토타입(prototype)` 이란?
+> 자바스크립트의 모든 객체는 또 다른 자바스크립트 객체와 연관되어 있고, 이 객체 (=프로토타입)으로부터 프로퍼티들을 상속 받는다.
+> 객체 리터럴로 생성된 모든 객체는 프로토타입 객체가 같으며, 자바스크립트에서 이 프로토타입 객체는 최상위 객체인 `Object.prototype` 으로 참조할 수 있다.
+> 예를 들어 Date.prototype나 Array.prototype은 모두 Object.prototype의 프로퍼티들을 상속받는다.
+
+> 참고: `프로토타입 체인(prototype chain)` 이란?
+> 자바스크립트에서 객체의 속성이나 메서드를 참조하게 되면, 가장 먼저 자신 안에 해당 멤버가 정의되어 있는지 찾는다.
+> 만약 발견하지 못한다면 자신의 프로토타입으로 이동하여 해당 프로토타입 객체 내에서 멤버를 찾는다.
+> 이 과정은 최상위 객체인 Object의 프로토타입까지 연결되어 있으며 멤버를 찾거나 혹은 찾지 못하고 null을 반환하게 되는데, 이러한 객체들의 연쇄를 `프로토타입 체인`이라 한다.
+
+#### 속성
+- `arguments` : 현재 실행중인 함수에 전달된 인수를 포함하는 배열 같은 객체 (Array-like Object)
+> 참고: Array-like Object란?
+> `arguments`가 `length`속성과 더불어 0부터 인덱스 된 다른 속성을 가지고 있지만, `Array`의 `foreach`, `map`과 같은 내장 메서드를 가지고 있지 않음을 의미한다.
 - `caller` : 현재 실행 중인 함수를 호출한 함수
 - `name` : 함수의 이름을 나타내며, 만약 이름이 없는 익명 함수라면 빈 문자열이 된다
-- `_proto_` : 모든 자바스크립트의 객체는 자신의 프로토타입을 가리키는 [[Prototype]]이라는 내부 프로퍼티를 가지고 있다. 크롬 브라우저에서는 [[Prototype]]이라는 내부 프로퍼티가 `_proto_`로 구현되어 있어, 같은 개념이라고 생각하면 된다.
 - `length` : ECMAScript에서 정한 모든 함수가 가져야 하는 표준 프로퍼티로, 함수가 정상적으로 실행될 때 기대되는 인자의 개수
+- `_proto_` : 모든 자바스크립트의 객체는 자신의 프로토타입을 가리키는 [[Prototype]]이라는 내부 프로퍼티를 가지고 있다. 크롬 브라우저에서는 [[Prototype]]이라는 내부 프로퍼티가 `_proto_`로 구현되어 있어, 같은 개념이라고 생각하면 된다.
 - `prototype` : 모든 함수는 `Function` 객체이며 `Function.prototype`에서 메서드 및 속성을 상속받는다.
-
 앞서 언급한 모든 객체의 부모를 나타내는 내부 프로퍼티인 [[Prototype]]과 혼동하지 말아야 한다.
 두 프로퍼티 모두 **프로토타입 객체**를 가리킨다는 점에서는 공통점이 있다.
 그러나, [[Prototype]]은 객체 입장에서 자신의 부모 역할을 하는 프로토타입 객체를 가리키는 반면,
 함수 객체가 가지는 prototype 프로퍼티는 함수가 생성될 때 만들어지며, 단지 constructor 프로퍼티 하나만 있는 객체를 가리킨다.
 
+#### 메서드
+
+- Function.prototype.apply()
+```
+func.apply(thisArg [, argsArray])
+
+// example
+// array literal
+func.apply(this, ['eat', 'bananas']);
+
+// Array object
+func.apply(this, new Array('eat', 'bananas'));
+```
+첫 번째 인자인 `thisArg`는 호출 컨텍스트이며 `this` 키워드의 값이 된다
+
+- Function.prototype.call()
+```
+func.call(thisArg [, arg1, arg2, ... argN])
+```
+
+> `apply()`와 `call()`는 어떤 함수를 다른 객체에 메서드인것 처럼 간접적으로 호출한다는 점에선 비슷하다.
+> 그러나 `apply()`는 인수 배열 하나를, `call()`은 인수 목록을 받는다는 차이가 있다.
+
+
+- Function.prototype.bind()
+```
+func.bind(thisArg [, arg1, arg2, ... argN])
+```
+
+새로운 함수를 생성하는데 사용된다
 
 
 ---
