@@ -172,7 +172,8 @@ b = addSquare(3, 4);    // return 25
 
 #### 메서드
 
-- Function.prototype.apply()
+**Function.prototype.apply()**
+
 ```
 func.apply(thisArg [, argsArray])
 
@@ -183,9 +184,13 @@ func.apply(this, ['eat', 'bananas']);
 // Array object
 func.apply(this, new Array('eat', 'bananas'));
 ```
-첫 번째 인자인 `thisArg`는 호출 컨텍스트이며 `this` 키워드의 값이 된다
 
-- Function.prototype.call()
+첫 번째 인자인 `thisArg`는 호출 컨텍스트이며 `this` 키워드의 값이 된다.
+기본적으로 `this`는 웹 브라우저에서는 전역 객체인 `window`를 참조하나,
+대부분의 경우 함수 내부, 객체 메서드 호출시, new 키워드와 함께 생성자 호출시 등 함수를 호출한 방법에 의해 결정된다.
+
+**Function.prototype.call()**
+
 ```
 func.call(thisArg [, arg1, arg2, ... argN])
 ```
@@ -193,14 +198,14 @@ func.call(thisArg [, arg1, arg2, ... argN])
 > `apply()`와 `call()`는 어떤 함수를 다른 객체에 메서드인것 처럼 간접적으로 호출한다는 점에선 비슷하다.
 > 그러나 `apply()`는 인수 배열 하나를, `call()`은 인수 목록을 받는다는 차이가 있다.
 
+**Function.prototype.bind()**
 
-- Function.prototype.bind()
 ```
 func.bind(thisArg [, arg1, arg2, ... argN])
 ```
 
-새로운 함수를 생성하는데 사용된다
-
+`bind()`는 새로운 함수를 생성하는데 사용된다.
+첫 번째 인자인 `thisArg`는 역시 `this` 키워드의 값이 되고, 이어지는 인자들은 바인드된 함수의 인수에 제공된다.
 
 ---
 
@@ -211,5 +216,9 @@ func.bind(thisArg [, arg1, arg2, ... argN])
 📌 [Function Statement :: MDN](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Statements/function)
 
 📌 [Function Object :: MDN](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Function)
+
+📌 [Function.prototype.apply() :: MDN](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Function/apply)
+
+📌 [Function.prototype.call() :: MDN](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Function/call)
 
 📌 [proto vs prototype in javascript :: Stackoverflow](https://stackoverflow.com/questions/9959727/proto-vs-prototype-in-javascript)
