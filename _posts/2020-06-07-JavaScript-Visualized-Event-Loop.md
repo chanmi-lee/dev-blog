@@ -96,7 +96,7 @@ baz();
 이해 되셨나요?
 브라우저에서 해당 코드를 실행할 때 어떤 일이 발생하는지 좀 더 자세히 알아봅시다.
 
-![example]({{ site.url }}/assets/img/posts/event-loop-example.gif){: width="60%" height="60%"}
+![example]({{ site.url }}/assets/img/posts/event-loop-example.gif)
 
 1. `bar` 함수를 호출합니다. bar는 `setTimeout` 함수를 반환합니다.
 2. 전달된 setTimeout 콜백 함수는 Web API (혹은 백그라운드라고 불리기도 함)에 추가되고, setTimeout과 bar 함수는 실행 스택으로부터 튀어나오게 됩니다.
