@@ -40,7 +40,7 @@ Web API에는 `DOM API, setTimeout, HTTP requests` 등이 포함됩니다.
 어쨌거나, 호출 스택은 이름 그대로 **스택**으로, Last-In, First-Out (LIFO) 구조를 가집니다.
 함수가 값을 반환하면, 그 값은 스택으로부터 튀어 나오게 됩니다. 👋
 
-![event-loop-in-javascript]({{ site.url }}/assets/img/posts/event-loop-call-stack.gif){: width="60%" height="60%"}
+![event-loop-in-javascript]({{ site.url }}/assets/img/posts/event-loop-call-stack.gif)
 
 위에서 `respond` 함수는 `setTimeout` 함수를 반환합니다.
 `setTimeout`은 Web API에 의해 제공되며, 메인 스레드를 차단하지 않고 작업을 지연시킬 수 있습니다.
@@ -49,12 +49,12 @@ Web API에는 `DOM API, setTimeout, HTTP requests` 등이 포함됩니다.
 두 번째 인자로 전달한 값에 따라, 해당 콜백 함수는 일정 시간 그 작업이 지연된 후 실행됩니다.
 setTimeout 함수와 respond 함수는 스택에서 튀어 나와, 각각의 값을 반환하게 됩니다.
 
-![event-loop-in-javascript]({{ site.url }}/assets/img/posts/event-loop-call-stack2.gif){: width="60%" height="60%"}
+![event-loop-in-javascript]({{ site.url }}/assets/img/posts/event-loop-call-stack2.gif)
 
 Web API에서, 타이머는 전달된 두 번째 인수 값인 1000ms 동안 실행됩니다.
 콜백은 즉시 호출 스택에 추가되지 않는 대신, `태스크 큐 (Task Queue)`라는 곳에 전달됩니다.
 
-![queue]({{ site.url }}/assets/img/posts/event-loop-queue.gif){: width="60%" height="60%"}
+![queue]({{ site.url }}/assets/img/posts/event-loop-queue.gif)
 
 여기가 혼란스러운 부분입니다.
 1000ms 후에 콜백 함수가 호출 스택에 추가된다는 것을 의미하지 않습니다.
@@ -73,11 +73,11 @@ while (queue.waitForMessage()) {
  }
 ```
 
-![queue]({{ site.url }}/assets/img/posts/event-loop-queue2.gif){: width="60%" height="60%"}
+![queue]({{ site.url }}/assets/img/posts/event-loop-queue2.gif)
 
 콜백 함수가 호출 스택에 추가되면, 호출되고 그 결과 값을 반환한 뒤 스택으로부터 튀어나오게 됩니다.
 
-![queue]({{ site.url }}/assets/img/posts/event-loop-queue3.gif){: width="60%" height="60%"}
+![queue]({{ site.url }}/assets/img/posts/event-loop-queue3.gif)
 
 ### 예제
 
