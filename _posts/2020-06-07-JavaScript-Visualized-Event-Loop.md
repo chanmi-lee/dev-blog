@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "자바스크립트 이벤트 루프"
+title: "[번역] 자바스크립트 이벤트 루프"
 excerpt: "#JavaScript #EventLoop #자바스크립트 #이벤트루프"
 categories: [글또, JavaScript]
 share: true
