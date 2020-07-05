@@ -28,9 +28,9 @@ comments: true
 최근의 이직과 온보딩 프로세스에서 아쉬운 점들을 되새겼고, 앞으로 주어질 시간들과 다음번 이직에 대한 새로운 고민을 할 수 있던 시간이었다.
 (사실 정확히 상반기에 참석한 내용은 아니지만, 상반기에 나름 영향을 준 내용이었기에 끼워넣었다) 
 
-![queue]({{ site.url }}/assets/img/posts/99-con.png)
-![queue]({{ site.url }}/assets/img/posts/99-con-studypie.png)
-![queue]({{ site.url }}/assets/img/posts/99-con-reboot.jpeg)
+![queue]({{ site.url }}/assets/img/posts/99-con.png){: width="70%" height="70%"}
+![queue]({{ site.url }}/assets/img/posts/99-con-studypie.jpeg){: width="50%" height="50%"}
+![queue]({{ site.url }}/assets/img/posts/99-con-reboot.jpeg){: width="50%" height="50%"}
 
 > AWS Webina - 여성 엔지니어 여러분을 초대합니다 (3/5/2020)
 
@@ -59,12 +59,12 @@ P5.js라는 자바스크립트 라이브러리로 간단한 게임을 만드는 
 
 #### 베타 리뷰어 참가
 
-![queue]({{ site.url }}/assets/img/posts/beta-reviewer-python.png)
+![queue]({{ site.url }}/assets/img/posts/beta-reviewer-python.png){: width="70%" height="70%"}
 
 지난 6월 말에 출판된 [혼자 공부하는 첫 프로그래밍 with 파이썬](https://www.hanbit.co.kr/store/books/look.php?p_code=B9609283195) 의 `베타 리뷰어`로 참여하였다.
 사실 파이썬의 ㅍ..도 모르지만 우연히 보게 된 베타 리뷰어 모집글을 보고 불현듯 처음 프로그래밍을 공부하던 때가 생각나서 지원하게 되었다.
 
-![queue]({{ site.url }}/assets/img/posts/beta-reviewer-info.png)
+![queue]({{ site.url }}/assets/img/posts/beta-reviewer-info.png){: width="70%" height="70%"}
 
 입문서인만큼 쉬운 내용으로 구성되어 있었고, 오탈자나 코딩 오류, 난해한 설명에 대한 피드백 등의 내용 중점으로 회고를 하였다.
 당연하지만(?) 출판 경험도 없거니와 일반 독자의 입장에서만 책을 접해보았기에, 다소 신기한 경험이었다.
@@ -77,7 +77,7 @@ P5.js라는 자바스크립트 라이브러리로 간단한 게임을 만드는 
 
 > 글또 다짐글 이후로 작성한 글들!
 
-![queue]({{ site.url }}/assets/img/posts/what-geultto-left.png)
+![queue]({{ site.url }}/assets/img/posts/what-geultto-left.png){: width="50%" height="50%"}
 
 브라우저 별 호환성을 제대로 확인하지 않은 탓에 발생한 오류로 고생하며 같은 실수 되풀이하지 말자며 작성한 [웹 표준과 크로스 브라우징 이슈](https://chanmi-lee.github.io/articles/2020-03/web-standard-and-cross-browsing-issue) 글부터,
 기본 개념들과 최근 업무에서 다뤘던 내용들 관련 내용들을 공식문서 위주로 복습하는 노력들로 요약할 수 있겠다.
