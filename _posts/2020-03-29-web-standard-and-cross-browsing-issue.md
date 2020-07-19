@@ -56,7 +56,7 @@ IE에서는 Array.prototype.includes (or String.prototype.includes)를 지원하
 
 - indexOf 사용
 
-```js
+```jsx
 const pets = ['cat', 'dog', 'goose', 'lion']
 
 console.log(pets.indexOf('cat') > -1)
@@ -65,7 +65,7 @@ console.log(pets.indexOf('cat') > -1)
 
 - Polyfill 사용
 
-```js
+```jsx
 if (!String.prototype.includes) {
   String.prototype.includes = function(search, start) {
     'use strict';

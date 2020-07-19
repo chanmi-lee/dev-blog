@@ -25,14 +25,14 @@ React의 데이터 흐름에서, `props`는 부모 컴포넌트와 자식 컴포
 
 Refs는 `React.createRef()`를 통해 생성되며, `ref` 속성을 통해 React 요소와 결합됩니다. Ref는 일반적으로 구성 요소가 생성될 때 해당 요소의 속성으로 지정되므로, 전체에서 참조될 수 있습니다.
 
-```javascript 1.8
+```jsx
 class MyComponent extends React.Component {
   constructor(props) {
-    super(props);
-    this.myRef = React.createRef();
+    super(props)
+    this.myRef = React.createRef()
   }
   render() {
-    return <div ref={this.myRef} />;
+    return <div ref={this.myRef} />
   }
 }
 ```
@@ -43,7 +43,7 @@ class MyComponent extends React.Component {
 
 Refs가 `render` 메소드를 통해 전달될 때, 해당 요소에의 접근은 ref의 `current` 속성에 의해 가능합니다.
 
-`const node = this.myRef.current;`
+`const node = this.myRef.current`
 
 ref의 값은 노드 타입에 따라 달라집니다.
 
@@ -53,19 +53,19 @@ ref의 값은 노드 타입에 따라 달라집니다.
 
 > HTML element에 ref 추가하기
 
-```javascript 1.8
+```jsx
 class CustomTextInput extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
     // create a ref to store the textInput DOM element
-    this.textInput = React.createRef();
-    this.focusTextInput = this.focusTextInput.bind(this);
+    this.textInput = React.createRef()
+    this.focusTextInput = this.focusTextInput.bind(this)
   }
 
   focusTextInput() {
     // Explicitly focus the text input using the raw DOM API
     // Note: we're accessing "current" to get the DOM node
-    this.textInput.current.focus();
+    this.textInput.current.focus()
   }
 
   render() {
@@ -82,7 +82,7 @@ class CustomTextInput extends React.Component {
           onClick={this.focusTextInput}
         />
       </div>
-    );
+    )
   }
 }
 ```
@@ -94,21 +94,21 @@ CustomTextInput 컴포넌트가 mount 될 때, 리액트는 해당 DOM element�
 
 위에서 생성한 CustomTextInput 컴포넌트를 mount 된 직후 클릭된 것처럼 감싸고 싶다면, 아래와 같이 ref를 사용하면 됩니다.
 
-```javascript 1.8
+```jsx
 class AutoFocusTextInput extends React.Component {
   constructor(props) {
-    super(props);
-    this.textInput = React.createRef();
+    super(props)
+    this.textInput = React.createRef()
   }
 
   componentDidMount() {
-    this.textInput.current.focusTextInput();
+    this.textInput.current.focusTextInput()
   }
 
   render() {
     return (
       <CustomTextInput ref={this.textInput} />
-    );
+    )
   }
 }
 ```
@@ -117,21 +117,21 @@ class AutoFocusTextInput extends React.Component {
 
 기본적으로, 함수형 컴포넌트에서는 ref 속성을 사용할 수 없습니다.
 
-```javascript 1.8
+```jsx
 function MyFunctionComponent() {
-  return <input />;
+  return <input />
 }
 
 class Parent extends React.Component {
   constructor(props) {
-    super(props);
-    this.textInput = React.createRef();
+    super(props)
+    this.textInput = React.createRef()
   }
   render() {
     // This will *not* work!
     return (
       <MyFunctionComponent ref={this.textInput} />
-    );
+    )
   }
 }
 ```
@@ -140,13 +140,13 @@ class Parent extends React.Component {
 
 또는, 함수형 컴포넌트가 DOM element 혹은 클래스 컴포넌트를 참조하는 경우에 한하여, ref 속성을 사용할 수도 있습니다.
 
-```javascript 1.8
+```jsx
 function CustomTextInput(props) {
   // textInput must be declared here so the ref can refer to it
-  const textInput = useRef(null);
+  const textInput = useRef(null)
 
   function handleClick() {
-    textInput.current.focus();
+    textInput.current.focus()
   }
 
   return (
@@ -160,7 +160,7 @@ function CustomTextInput(props) {
         onClick={handleClick}
       />
     </div>
-  );
+  )
 }
 ```
 

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Hooks"
+title: "Hooks 살펴보기"
 excerpt: "#Hooks #React"
 categories: [글또, React]
 share: true
@@ -20,12 +20,12 @@ Hooks은 이전 리액트 버전과 호환됩니다. 아래 내용이 다소 빠
 
 아래 예제는 카운터를 렌더링합니다. 버튼을 클릭하면, 값이 증가합니다:
 
-```js
-import React, { useState } from 'react';
+```jsx
+import React, { useState } from 'react'
 
 function Example() {
   // count라는 이름의 state 변수를 선언합니다.
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(0)
 
   return (
     <div>
@@ -34,7 +34,7 @@ function Example() {
         Click me
       </button>
     </div>
-  );
+  )
 }
 ```
 
@@ -53,12 +53,12 @@ function Example() {
 
 한 컴포넌트에서 State Hook를 여러 번 사용할 수도 있습니다.
 
-```js
+```jsx
 function ExampleWithManyStates() {
   // Declare multiple state variables!
-  const [age, setAge] = useState(42);
-  const [fruit, setFruit] = useState('banana');
-  const [todos, setTodos] = useState([{ text: 'Learn Hooks' }]);
+  const [age, setAge] = useState(42)
+  const [fruit, setFruit] = useState('banana')
+  const [todos, setTodos] = useState([{ text: 'Learn Hooks' }])
   // ...
 }
 ```
@@ -87,17 +87,17 @@ Hooks은 클래스 내에서는 동작하지 않습니다. (기존 클래스 컴
 
 예를 들어, 이 컴포넌트는 리액트가 DOM을 업데이트 한 뒤에 문서의 제목을 지정합니다:
 
-```js
-import React, { useState, useEffect } from 'react';
+```jsx
+import React, { useState, useEffect } from 'react'
 
 function Example() {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(0)
 
   // componentDidMount, componentDidUpdate와 유사:
   useEffect(() => {
     // browser API 를 사용하여 문서 제목을 업데이트
-    document.title = `You clicked ${count} times`;
-  });
+    document.title = `You clicked ${count} times`
+  })
 
   return (
     <div>
@@ -106,7 +106,7 @@ function Example() {
         Click me
       </button>
     </div>
-  );
+  )
 }
 ```
 
@@ -118,27 +118,28 @@ effect는 컴포넌트 내부에 선언되며 따라서 컴포넌트의 props와
 Effects는 또한 함수를 '정리'하여 반환하는 방법이기도 합니다.
 예를 들어, 이 컴포넌트를 사용하여 친구의 온라인 상태를 구독하거나 구독을 취소하며 정리합니다.
 
-```js
-import React, { useState, useEffect } from 'react';
+```jsx
+import React, { useState, useEffect } from 'react'
 
 function FriendStatus(props) {
-  const [isOnline, setIsOnline] = useState(null);
+  const [isOnline, setIsOnline] = useState(null)
 
   function handleStatusChange(status) {
-    setIsOnline(status.isOnline);
+    setIsOnline(status.isOnline)
   }
 
   useEffect(() => {
-    ChatAPI.subscribeToFriendStatus(props.friend.id, handleStatusChange);
+    ChatAPI.subscribeToFriendStatus(props.friend.id, handleStatusChange)
     return () => {
-      ChatAPI.unsubscribeFromFriendStatus(props.friend.id, handleStatusChange);
-    };
-  });
+      ChatAPI.unsubscribeFromFriendStatus(props.friend.id, handleStatusChange)
+    }
+  })
 
   if (isOnline === null) {
-    return 'Loading...';
+    return 'Loading...'
   }
-  return isOnline ? 'Online' : 'Offline';
+  return isOnline ? 'Online' : 'Offline'
+}
 ```
 
 이 예제에서, 리액트는 컴포넌트가 언마운트 될 때와 렌더링으로 인해 효과가 다시 실행되기 전에, Chat API을 통해 구독을 취소합니다.
@@ -146,25 +147,26 @@ function FriendStatus(props) {
 
 `useState`처럼, 컴포넌트에서 하나 이상의 effect를 사용할 수 있습니다.
 
-```js
+```jsx
 function FriendStatusWithCounter(props) {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(0)
   useEffect(() => {
-    document.title = `You clicked ${count} times`;
-  });
+    document.title = `You clicked ${count} times`
+  })
 
-  const [isOnline, setIsOnline] = useState(null);
+  const [isOnline, setIsOnline] = useState(null)
   useEffect(() => {
-    ChatAPI.subscribeToFriendStatus(props.friend.id, handleStatusChange);
+    ChatAPI.subscribeToFriendStatus(props.friend.id, handleStatusChange)
     return () => {
-      ChatAPI.unsubscribeFromFriendStatus(props.friend.id, handleStatusChange);
-    };
-  });
+      ChatAPI.unsubscribeFromFriendStatus(props.friend.id, handleStatusChange)
+    }
+  })
 
   function handleStatusChange(status) {
-    setIsOnline(status.isOnline);
+    setIsOnline(status.isOnline)
   }
   // ...
+}
 ```
 
 Hooks을 사용하면 라이프사이클 메소드에 기반한 분할을 강요하지 않고, 관련된 부분 (예: 구독 추가 및 제거)에 따라 컴포넌트의 side effects을 구성할 수 있습니다.
@@ -192,49 +194,49 @@ Custom Hooks을 사용하면, 더 많은 컴포넌트를 트리에 추가하지 
 
 먼저, 이 로직을 `useFriendStatus`라는 Custom Hooks으로 분리합니다.
 
-```js
-import React, { useState, useEffect } from 'react';
+```jsx
+import React, { useState, useEffect } from 'react'
 
 function useFriendStatus(friendID) {
-  const [isOnline, setIsOnline] = useState(null);
+  const [isOnline, setIsOnline] = useState(null)
 
   function handleStatusChange(status) {
-    setIsOnline(status.isOnline);
+    setIsOnline(status.isOnline)
   }
 
   useEffect(() => {
-    ChatAPI.subscribeToFriendStatus(friendID, handleStatusChange);
+    ChatAPI.subscribeToFriendStatus(friendID, handleStatusChange)
     return () => {
-      ChatAPI.unsubscribeFromFriendStatus(friendID, handleStatusChange);
-    };
-  });
+      ChatAPI.unsubscribeFromFriendStatus(friendID, handleStatusChange)
+    }
+  })
 
-  return isOnline;
+  return isOnline
 }
 ```
 
 `useFriendStatus`는 `friendID`를 인수로 받아, 친구의 온라인 여부를 돌려줍니다.
 이를 아래의 컴포넌트들에서 사용할 수도 있습니다.
 
-```js
+```jsx
 function FriendStatus(props) {
-  const isOnline = useFriendStatus(props.friend.id);
+  const isOnline = useFriendStatus(props.friend.id)
 
   if (isOnline === null) {
-    return 'Loading...';
+    return 'Loading...'
   }
-  return isOnline ? 'Online' : 'Offline';
+  return isOnline ? 'Online' : 'Offline'
 }
 ```
-```js
+```jsx
 function FriendListItem(props) {
-  const isOnline = useFriendStatus(props.friend.id);
+  const isOnline = useFriendStatus(props.friend.id)
 
   return (
     <li style={{ color: isOnline ? 'green' : 'black' }}>
       {props.friend.name}
     </li>
-  );
+  )
 }
 ```
 
@@ -255,20 +257,21 @@ Custom Hooks은 하나의 기능이라기 보다 규칙에 좀 더 가깝습니�
 일반적으로 사용되진 않지만, 유용한 내장 Hooks들도 있습니다.
 예를 들어, `useContext`를 사용하면 중첩 없이도 React 컨텍스트를 구독할 수 있습니다.
 
-```js
+```jsx
 function Example() {
-  const locale = useContext(LocaleContext);
-  const theme = useContext(ThemeContext);
+  const locale = useContext(LocaleContext)
+  const theme = useContext(ThemeContext)
   // ...
 }
 ```
 
 또한, `useRender`를 사용하면 리듀서 복잡한 컴포넌트의 로컬 state를 관리할 수 있습니다.
 
-```js
+```jsx
 function Todos() {
-  const [todos, dispatch] = useReducer(todosReducer);
+  const [todos, dispatch] = useReducer(todosReducer)
   // ...
+}
 ```
 
 > [Hooks API Reference](https://reactjs.org/docs/hooks-reference.html) 에서 내장 Hooks에 대한 자세한 내용을 확인 할 수 있습니다.
