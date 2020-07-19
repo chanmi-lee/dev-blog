@@ -215,7 +215,7 @@ function useFriendStatus(friendID) {
 }
 ```
 
-`useFriendStatus`는 `friendID`를 인수로 받아, 친구의 온라인 여부를 돌려줍니다.
+`useFriendStatus`는 `friendID`를 인수로 받아, 친구의 온라인 여부를 반환해줍니다.
 이를 아래의 컴포넌트들에서 사용할 수도 있습니다.
 
 ```jsx
@@ -245,7 +245,7 @@ function FriendListItem(props) {
 
 Custom Hooks은 하나의 기능이라기 보다 규칙에 좀 더 가깝습니다.
 만약 함수의 이름이 `use`로 시작하고 다른 Hooks을 호출한다면, 우리는 이를 custom Hook이라 합니다.
-`useSomething` 이름 규칙은 linkter plugin이 Hooks를 사용하여 코드에서 버그를 찾는 방법입니다.
+`useSomething` 이름 규칙은 linter plugin이 Hooks를 사용하여 코드에서 버그를 찾는 방법입니다.
 
 폼 핸들링, 애니메이션, 선언적 구독, 타이머 및 그 외 좀 더 광범위한 사용 사례를 포함하는 custom Hooks을 작성할 수도 있습니다.
 리액트 커뮤니티가 어떤 custom Hooks을 만들어낼 지 기대됩니다.
@@ -265,7 +265,7 @@ function Example() {
 }
 ```
 
-또한, `useRender`를 사용하면 리듀서 복잡한 컴포넌트의 로컬 state를 관리할 수 있습니다.
+또한, `useRender`를 사용하면 복잡한 컴포넌트의 로컬 state를 관리할 수 있습니다.
 
 ```jsx
 function Todos() {
