@@ -67,7 +67,8 @@ Web API에서, 타이머는 전달된 두 번째 인수 값인 1000ms 동안 실
 
 > MDN의 이벤트 루프 관련 내용을 보면, 왜 이벤트 **'루프'** 라는 이름이 붙었는지를 간단한 코드와 함께 설명하고 있습니다.
 > `waitForMessage` 메소드는 현재 실행 중인 작업이 없을 때 (즉, 호출 스택이 비어있을 때), 다음 작업이 태스크 큐에 추가될 때까지 대기하는 역할을 합니다. 
-```
+
+```js
 while (queue.waitForMessage()) {
    queue.processNextMessage()
  }
@@ -83,7 +84,7 @@ while (queue.waitForMessage()) {
 
 다음을 실행하면 콘솔에 어떻게 출력될까요?
 
-```
+```js
 const foo = () => console.log("First");
 const bar = () => setTimeout(() => console.log("Second"), 500);
 const baz = () => console.log("Third");

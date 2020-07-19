@@ -20,7 +20,7 @@ comments: true
 - 함수 표현식(`function expression`)
 - `Function()` 생성자 함수
 
-```
+```js
 // 1. 함수 선언문
 function add(x, y) {
     return x + y;
@@ -65,7 +65,7 @@ new Function (arg1, arg2, ... argN, functionBody)
 
 예제와 함께 좀 더 자세히 살펴보자.
 
-```
+```js
 // 함수는 숫자나 문자열처럼 변수나 프로퍼티의 값으로 할당될 수 있다
 var foo = 100;
 var bar = function () { 
@@ -102,7 +102,7 @@ var foo = function () {
 이러한 익명 함수의 대표적인 용도가 바로 **콜백 함수**이다
 대표적인 콜백 함수의 사용 예로는 자바스크립트에서의 이벤트 핸들러 처리가 있다. 웹 페이지가 로드 되거나 키보드 입력 등의 DOM 이벤트가 발생하는 경우, 브라우저는 DOM 이벤트에 해당하는 이벤트 핸들러를 실행한다.
 
-```
+```js
 window.onload = function() {
     alert('This is the callback function');
 }
@@ -113,7 +113,7 @@ window.onload = function() {
 즉시 실행 함수는 익명 함수를 응용한 형태로, 함수를 정의함과 동시에 바로 실행하는 함수를 의미한다.
 이 함수는 같은 함수를 다시 호출할 수 없기 때문에, 최초 한 번의 실행만을 필요로 하는 초기화 코드 등에 사용할 수 있다.
 
-```
+```js
 (function (name) {
     console.log('This is the immediate function', name);
 })();
@@ -127,7 +127,7 @@ window.onload = function() {
 내부 함수는 말 그대로 함수 내부에 정의된 함수를 의미한다.
 내부 함수의 예로 클로저의 생성을 들 수 있다.
 
-```
+```js
 function addSquare(a, b) {
     function square(x) {
         return x * x;
@@ -174,7 +174,7 @@ b = addSquare(3, 4);    // return 25
 
 **Function.prototype.apply()**
 
-```
+```js
 func.apply(thisArg [, argsArray])
 
 // example
@@ -191,7 +191,7 @@ func.apply(this, new Array('eat', 'bananas'));
 
 **Function.prototype.call()**
 
-```
+```js
 func.call(thisArg [, arg1, arg2, ... argN])
 ```
 
@@ -200,7 +200,7 @@ func.call(thisArg [, arg1, arg2, ... argN])
 
 **Function.prototype.bind()**
 
-```
+```js
 func.bind(thisArg [, arg1, arg2, ... argN])
 ```
 

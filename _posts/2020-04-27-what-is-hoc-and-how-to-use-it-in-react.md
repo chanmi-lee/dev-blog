@@ -15,7 +15,7 @@ React의 구성 방식으로부터 파생된 패턴이라고 이해할 수 있�
 
 구체적으로 HOC는 컴포넌트를 파라미터로 받아 이를 새로운 컴포넌트로 돌려주는 하나의 함수라고 이해할 수 있습니다.
 
-```
+```js
 const EnhancedComponent = higherOrderComponent(WrappedComponent);
 ```
 
@@ -38,7 +38,7 @@ React에서 컴포넌트는 코드를 재사용하는 주요한 코드의 단위
 
 예를 들어, 댓글 목록을 렌더링하기 위해 외부 리소스를 subscribe하는 `CommentList`라는 컴포넌트가 있다고 합시다.
 
-```
+```js
 class CommentList extends React.Component {
     constructor(props) {
       super(props);
@@ -80,7 +80,7 @@ class CommentList extends React.Component {
 
 또한, 같은 패턴을 가지며 하나의 포스트를 위한 `BlogPost`라는 이름 컴포넌트를 작성합니다.
 
-```
+```js
 class BlogPost extends React.Component {
   constructor(props) {
     super(props);
@@ -130,7 +130,7 @@ HOC의 원리는 파라미터로 컴포넌트를 받아오고 함수 내부에�
 우선 HOC의 틀을 작성해보겠습니다.
 
 
-```
+```js
 const CommentListWithSubscription = withSubscription(
     CommentList,
     (DataSource) => DataSource.getComments()
@@ -148,7 +148,7 @@ const BlogPostWithSubscription = withSubscription(
 첫 번째 파라미터는 감싸진 컴포넌트(Wrapped component) 입니다.
 두 번째 파라미터는 우리가 알고자 하는 데이터로 이를 DataSource로 받아와 props로 넘겨줍니다.
 
-```
+```js
 // This function takes a component...
 function withSubscription(WrappedComponent, selectData) {
   // ...and returns another component...
@@ -208,7 +208,7 @@ React의 diffing algorithm (혹은 reconciliation라고 불린다) 은 기존의
 
 일반적으로 이 내용에 대해 고민할 필요는 없습니다. 하지만 컴포넌트의 render 메소드에 HOC를 사용하는 경우는 다릅니다.
 
-```
+```js
 render() {
   // A new version of EnhancedComponent is created on every render
   // EnhancedComponent1 !== EnhancedComponent2
@@ -230,7 +230,7 @@ render() {
 컴포넌트에 HOC를 적용할 때, 기존의 컴포넌트는 컨테이너 컴포넌트에 의해 감싸집니다.
 이는 새로운 컴포넌트는 기존 컴포넌트가 가진 어떠한 static method도 가지지 못함을 의미합니다.
 
-```
+```js
 // Define a static method
 WrappedComponent.staticMethod = function() {/*...*/}
 // Now apply a HOC
@@ -242,7 +242,7 @@ typeof EnhancedComponent.staticMethod === 'undefined' // true
 
 이를 해결하기 위해서는, 기존의 컴포넌트를 돌려주기 전에 컨테이너 컴포넌트에서 메소드를 복제해줘야 합니다.
 
-```
+```js
 function enhance(WrappedComponent) {
     class Enhance extends React.Component {/*...*/}
     // Must know excatly which method(s) to copy :(
@@ -254,7 +254,7 @@ function enhance(WrappedComponent) {
 그러나 이는 정확히 어떤 메소드를 복제해줘야 할 지 알아야 함을 의미합니다.
 `hoist-non-react-statics` 를 사용하면 자동으로 모든 non-React static method를 복제할 수도 있습니다.
 
-```
+```js
 import hoistNonReactStatic from 'hoist-non-react-statics';
 function enhance(WrappedComponent) {
   class Enhance extends React.Component {/*...*/}
@@ -265,7 +265,7 @@ function enhance(WrappedComponent) {
 
 또 다른 방법으로는 컴포넌트로부터 별도로 static method를 export하는 방법도 있습니다.
 
-```
+```js
 // Instead of...
 MyComponent.someFunction = someFunction;
 export default MyComponent;
