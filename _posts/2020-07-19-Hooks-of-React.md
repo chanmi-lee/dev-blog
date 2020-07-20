@@ -9,8 +9,8 @@ comments: true
 
 ### Hooks 개요
 
-Hooks은 리액트 16.8부터 새롭게 추가된 내용입니다.
-이는 클래스를 작성하지 않고도 state 및 다른 리액트 기능들을 사용할 수 있습니다.
+Hooks은 **리액트 16.8** 부터 새롭게 추가된 내용입니다.
+Hooks을 사용하면 클래스를 작성하지 않고도 state 및 다른 리액트 기능들을 사용할 수 있습니다.
 
 Hooks은 이전 리액트 버전과 호환됩니다. 아래 내용이 다소 빠르다고 느끼거나 리액트에 친숙하지 않다면, 아래 페이지를 참고해주세요:
 
@@ -43,6 +43,7 @@ function Example() {
 리액트가 컴포넌트를 다시 랜더링하는 동안에도 이 state는 그대로 보존됩니다.
 `useState`는 현재 state 값과 이를 업데이트 할 수 있는 함수 쌍을 반환합니다.
 이벤트 핸들러나 혹은 어디서든 이 함수를 호출 할 수 있습니다.
+
 이는 클래스에서의 `this.setState`와 비슷하지만, 이전 state와 새로운 state를 병합하지 않는다는 점에 차이가 있습니다.
 ([Hooks state](https://reactjs.org/docs/hooks-state.html) 에서 `useState`와 `this.state`를 비교하는 예제를 확인하실 수 있습니다.)
 
@@ -69,11 +70,11 @@ function ExampleWithManyStates() {
 
 ### 그런데 Hook이란?
 
-Hooks은 함수로 리액트 state와 함수 컴포넌트의 라이프사이클 기능을 연결합니다.
+**Hooks은 함수로 리액트 state와 함수 컴포넌트의 라이프사이클 기능을 연결합니다.**
 Hooks은 클래스 내에서는 동작하지 않습니다. (기존 클래스 컴포넌트를 다시 작성하는 것은 추천하지 않지만 원하는 경우 새로운 컴포넌트에서 Hook을 사용할 수 있습니다.)
 
-리액트는 useState처럼 몇가지의 내장 Hooks을 제공합니다.
-또한 서로 다른 컴포넌트간의 stateful behavior을 재사용하기위한 자체 Hooks을 생성할 수도 있습니다.
+리액트는 useState처럼 몇가지의 **내장 Hooks을 제공** 합니다.
+또한 서로 다른 컴포넌트간의 stateful behavior을 재사용하기위한 자체 Hooks (또는 custom Hooks) 을 생성할 수도 있습니다.
 먼저 내장 Hooks을 살펴보겠습니다.
 
 ### ⚡️ Effect Hook
@@ -175,8 +176,8 @@ Hooks을 사용하면 라이프사이클 메소드에 기반한 분할을 강요
 
 Hooks는 자바스크립트 함수지만, 두 가지 추가적인 법칙을 따릅니다.
 
-- Hooks는 최상위 레벨에서만 호출합니다. 루프나, 조건문 또는 중첩 함수 내에서 사용하지 않습니다.
-- Hooks는 리액트 함수 컴포넌트에서만 호출합니다. 일반적인 자바스크립트 함수에서 사용하지 않습니다. (단, Custom Hooks은 예외로 하며 이에 대해선 이어서 살펴봅니다.)
+- Hooks는 **최상위 레벨에서만 호출**합니다. 루프나, 조건문 또는 중첩 함수 내에서 사용하지 않습니다.
+- Hooks는 **리액트 함수 컴포넌트에서만 호출**합니다. 일반적인 자바스크립트 함수에서 사용하지 않습니다. (단, Custom Hooks은 예외로 하며 이에 대해선 이어서 살펴봅니다.)
 
 이 법칙을 자동으로 강제하기 위해 [`linter plugin`](https://www.npmjs.com/package/eslint-plugin-react-hooks) 을 제공합니다.
 처음에는 이 법칙들이 제한적이거나 혼란스럽게 느껴질 수 있지만, 이는 Hooks이 잘 동작하도록 하는데 필수입니다.
@@ -233,7 +234,7 @@ function FriendListItem(props) {
   const isOnline = useFriendStatus(props.friend.id)
 
   return (
-    <li style={{ color: isOnline ? 'green' : 'black' }}>
+    <li style={%raw%}{{ color: isOnline ? 'green' : 'black' }}{%endraw%}>
       {props.friend.name}
     </li>
   )
@@ -243,7 +244,7 @@ function FriendListItem(props) {
 이 컴포넌트들의 state는 완전히 독립적입니다. Hooks는 상태 저장 로직을 재사용하는 하나의 방법일 뿐, state 그 자체는 아닙니다.
 사실, 각각의 Hooks 호출은 완전히 별개의 state를 가지므로 하나의 컴포넌트에서 같은 custom Hooks을 두 번 사용할 수도 있습니다.
 
-Custom Hooks은 하나의 기능이라기 보다 규칙에 좀 더 가깝습니다.
+**Custom Hooks은 하나의 기능이라기 보다 규칙에 좀 더 가깝습니다.**
 만약 함수의 이름이 `use`로 시작하고 다른 Hooks을 호출한다면, 우리는 이를 custom Hook이라 합니다.
 `useSomething` 이름 규칙은 linter plugin이 Hooks를 사용하여 코드에서 버그를 찾는 방법입니다.
 
