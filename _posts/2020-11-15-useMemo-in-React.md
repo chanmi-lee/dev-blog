@@ -19,7 +19,7 @@ memoization이란 이름 그대로 메모를 하는 것으로, 프로그래밍�
 `useMemo` 함수는 React v16.8부터 내장되어 있는 Hooks의 하나입니다.
 Hook이란 함수형 컴포넌트에서 State, LifeCycle, Reference 등의 클래스형 컴포넌트의 기능을 구현한 개념으로, 이를 통해 memoization 기법을 함수형 컴포넌트에도 쉽게 적용할 수 있습니다.
 
-``` 
+```jsx
 const memoizedValue = useMemo(() => computeExpensiveValue(a, b), [a, b]);
 ```
 
@@ -42,7 +42,7 @@ const memoizedValue = useMemo(() => computeExpensiveValue(a, b), [a, b]);
 
 > without useMemo
 
-```javascript 1.8
+```jsx
 function Counter() {
     const [count, setCount] = React.useState(0)
     const doubleCount = count * 2
@@ -62,7 +62,7 @@ function Counter() {
 
 > with useMemo
 
-```javascript 1.8
+```jsx
 function Counter() {
     const [count, setCount] = React.useState(0)
     const doubleCount = React.useMemo(() => counter * 2, [count])
