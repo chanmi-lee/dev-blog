@@ -61,7 +61,7 @@ d.count();      // => 1 : d는 reset되지 않았기 때문에 1을 반환합니
 > 내부 변수는 외부에서는 직접 접근할 수 없으며, 클로저를 통해서만 사용할 수 있습니다.
 > 이는 객체지향언어의 private 멤버 변수와 같은 역할을 합니다.
 
-### 너무나 유명한 반복문 클로저 예제
+너무나 유명한 반복문 클로저 예제도 함께 살펴보겠습니다.
 
 ```javascript
 function count() {
@@ -95,10 +95,16 @@ count();
 ```
 
 위의 예제와 같이 새로운 스코프를 추가해주면, 독립적인 환경에 값을 따로 저장하게 됩니다.
+
+> 모든 함수는 함수가 생성된 곳의 어휘적 유효범위 (lexical scoping)을 기억합니다.
+> 함수는 [[Environment]]라 불리는 프로퍼티를 갖는데, 여기에 어휘적 유효범위에 대한 참조가 저장됩니다.
+> [[Environment]]는 함수가 생성될 때 값이 세팅되며 이 값은 불변합니다.
+
 혹은 아래와 같이 ES6에서 추가된 블록 스코프 방식, 즉 `let` 키워드를 이용할 수도 있습니다.
 
-```javascript 1.8
+```javascript
 function count() {
+    'use strict';
     for (let i = 1; i <= 10; i++) {
         setTimeout(function timer() {
             console.log(i);
