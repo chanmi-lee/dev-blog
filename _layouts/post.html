@@ -56,11 +56,6 @@ comments: true
   </ul>
 </div><!-- end share-buttons -->
 
-<script src="https://utteranc.es/client.js"
-        repo="chanmi-lee/blog_comments"
-        issue-term="title"
-        label="✨comments💬✨"
-        theme="github-light"
-        crossorigin="anonymous"
-        async>
-</script>
+{% if page.comments == true %}
+{% include comments.html %}
+{% endif %}

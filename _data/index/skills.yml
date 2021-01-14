@@ -2,5 +2,5 @@
 
 label: Ability
 id : cs
-aspects: Motivation, Java, JavaScript, HTML/CSS, GraphQL, React
-percentage: 100, 85, 65, 75, 50, 60
+aspects: Motivation, JavaScript, React, Angular, HTML/CSS, Java, Node.js
+percentage: 100, 85, 75, 50, 65, 70

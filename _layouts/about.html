@@ -1,5 +1,6 @@
 ---
 layout: default
+comments: true
 ---
 <div class="row">
     <div class="col l7">
@@ -27,6 +28,8 @@ layout: default
             {% include sections/education.html %}    
         </div>
     </div>
-    
-
 </div>
+
+{% if page.comments == true %}
+{% include comments.html %}
+{% endif %}
