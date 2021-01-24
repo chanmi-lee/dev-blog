@@ -29,7 +29,8 @@ comments: true
 
 ![queue]({{ site.url }}/assets/img/posts/web-performance-of-us.png){: width="30%" height="30%"}
 
-~~거의 0에 수렴하는 performance 점수.. (눈물)~~
+(~~거의 0에 수렴하는 performance 점수.. (눈물)~~)
+
 아래 구글의 점수와 비교해보면 그 차이를 바로 체감할 수 있습니다.
 
 ![queue]({{ site.url }}/assets/img/posts/web-performance-of-google.png){: width="30%" height="30%"}
