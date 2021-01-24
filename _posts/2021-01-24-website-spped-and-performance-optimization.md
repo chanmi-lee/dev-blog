@@ -29,10 +29,10 @@ comments: true
 
 ![queue]({{ site.url }}/assets/img/posts/web-performance-of-us.png){: width="30%" height="30%"}
 
-(~~개선점이 한두개가 아니다ㅠ~~)
+~~거의 0에 수렴하는 performance 점수.. (눈물)~~
+아래 구글의 점수와 비교해보면 그 차이를 바로 체감할 수 있습니다.
 
 ![queue]({{ site.url }}/assets/img/posts/web-performance-of-google.png){: width="30%" height="30%"}
-> best practice of Google
 
 이 중에서 Performance의 점수는 현재 페이지의 성능을 측정한 점수이며, 이는 Metrics 지표의 세부 항목을 기준으로 측정됩니다.
 
