@@ -7,7 +7,7 @@ share: true
 comments: true
 ---
 
-![queue]({{ site.url }}/assets/img/posts/web-performance.png)
+![queue]({{ site.url }}/assets/img/posts/web-performance.png){: width="50%" height="50%"}
 
 ### 웹 성능 분석 및 최적화 기법 (with Chrome Developer Tools)
 
@@ -71,7 +71,7 @@ DCL, FP, FCP, LCP, L 등의 순서를 확인할 수 있으며 각각의 의미�
 
 > Tips: `DOMContentLoaded event` 와 `onload event`는 `Network` 패널 하단에서 확인할 수 있습니다.
 
-![queue]({{ site.url }}/assets/img/posts/DCL-and-onload-in-network.png)
+![queue]({{ site.url }}/assets/img/posts/DCL-and-onload-in-network.png){: width="50%" height="50%"}
 
 > Main
 
@@ -86,7 +86,7 @@ DCL, FP, FCP, LCP, L 등의 순서를 확인할 수 있으며 각각의 의미�
 `Network`는 `Performance` 패널과 함께 레코딩되며, `웹 페이지가 로딩되는 동안 요청된 리소스 정보들`을 확인할 수 있습니다.
 이 때 리소스 목록은 시간순으로 정렬되며, 아래와 같이 각 리소스의 서버 요청 대기 시간을 확인할 수 있습니다.
 
-![queue]({{ site.url }}/assets/img/posts/resource-detail-in-network.png){: width="50%" height="50%"}
+![queue]({{ site.url }}/assets/img/posts/resource-detail-in-network.png){: width="30%" height="30%"}
 
 #### 성능 최적화 방법들
 
@@ -96,6 +96,7 @@ DCL, FP, FCP, LCP, L 등의 순서를 확인할 수 있으며 각각의 의미�
 로딩 성능과 렌더링 성능 각각의 관점에서 구체적인 최적화 방안들은 다음과 같습니다.
 
 > 로딩 성능 최적화
+
 - 리소스 최적화
     - 텍스트 압축
     - 이미지 사이즈 최적화
@@ -104,7 +105,9 @@ DCL, FP, FCP, LCP, L 등의 순서를 확인할 수 있으며 각각의 의미�
     - 리소스 캐싱
     - 이미지 Preload & Lazy load
     - webpack 등의 번들러를 통한 번들된 리소스 활용
+    
 > 렌더링 성능 최적화
+
 - css는 `<head>` 바로 아래 작성
      - 렌더 트리를 구성하기 위해서는 `DOM 트리`와 `CSSOM 트리`가 필요합니다.
      DOM 트리는 파싱 중 태그를 발견할 때마다 순차적 구성이 가능하나, CSSOM 트리는 CSS를 모두 해석해야 구성이 가능합니다.
