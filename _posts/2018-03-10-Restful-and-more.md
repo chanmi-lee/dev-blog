@@ -7,8 +7,7 @@ share: true
 comments: true
 ---
 
-> ## RESTful
-* * *
+### RESTful
 
 > ROA (Resource Oriented Architecture)
 : 자원 지향 아키텍처
@@ -63,9 +62,7 @@ comments: true
 
 ---
 
-> ## SOAP
-
-(Simle Object Access Protocol)
+#### SOAP (Simle Object Access Protocol)
 
 > SOA (Service Oriented Architecture)
 : 서비스 지향 아키텍처
