@@ -27,13 +27,13 @@ comments: true
 
 최상단에서 현재 웹 페이지를 `Performance`, `Accessibility`, `Best Practices`, `SEO`, `PWA`의 다섯가지 기준에 따라 분석 점수를 확인할 수 있습니다.
 
-![queue]({{ site.url }}/assets/img/posts/web-performance-of-us.png){: width="30%" height="30%"}
+![queue]({{ site.url }}/assets/img/posts/web-performance-of-us.png){: width="50%" height="50%"}
 
 (~~거의 0에 수렴하는 performance 점수.. (눈물)~~)
 
 아래 구글의 점수와 비교해보면 그 차이를 바로 체감할 수 있습니다.
 
-![queue]({{ site.url }}/assets/img/posts/web-performance-of-google.png){: width="30%" height="30%"}
+![queue]({{ site.url }}/assets/img/posts/web-performance-of-google.png){: width="50%" height="50%"}
 
 이 중에서 Performance의 점수는 현재 페이지의 성능을 측정한 점수이며, 이는 Metrics 지표의 세부 항목을 기준으로 측정됩니다.
 
@@ -54,6 +54,8 @@ comments: true
 그러나 해당 리소스의 어느 부분이 문제가 되는지, 어떻게 개선해야 하는지 등에 관한 구체적인 정보는 제공되지 않습니다. (이어지는 `Performance` 패널을 통해 조금 더 구체적으로 확인이 가능합니다)
 
 마지막의 `Runtime Settings`에서는 검사를 실행한 환경에 대한 정보를 확인할 수 있습니다.
+
+![queue]({{ site.url }}/assets/img/posts/runtime-setting-in-lighthouse.png){: width="50%" height="50%"}
 
 #### Performance로 분석하기
 
@@ -97,7 +99,7 @@ DCL, FP, FCP, LCP, L 등의 순서를 확인할 수 있으며 각각의 의미�
 `Network`는 `Performance` 패널과 함께 레코딩되며, `웹 페이지가 로딩되는 동안 요청된 리소스 정보들`을 확인할 수 있습니다.
 이 때 리소스 목록은 시간순으로 정렬되며, 아래와 같이 각 리소스의 서버 요청 대기 시간을 확인할 수 있습니다.
 
-![queue]({{ site.url }}/assets/img/posts/resource-detail-in-network.png){: width="30%" height="30%"}
+![queue]({{ site.url }}/assets/img/posts/resource-detail-in-network.png){: width="50%" height="50%"}
 
 - Queuing : 대기열에 쌓아둔 시간
 - Stalled : 요청을 보내기 전의 대기 시간, 즉 서버와 커넥션을 맺기까지의 시간
@@ -121,54 +123,54 @@ DCL, FP, FCP, LCP, L 등의 순서를 확인할 수 있으며 각각의 의미�
     - 리소스 캐싱 ([MDN : HTTP Caching](https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching))
     - 이미지 Preload & Lazy load
     - 컴포넌트 Preloading
-        ```
-          import React, { useState, useEffect, Suspense, lazy } from 'react'
+    ```jsx
+    import React, { useState, useEffect, Suspense, lazy } from 'react'
+    
+    // factory pattern
+    function lazyWithPreload(lazyImport) {
+      const Component = React.lazy(lazyImport)
+      Component.preload = lazyImport
+      return Component
+    }
+    
+    // lazyLoad 대상이 되는 컴포넌트들을 선언
+    const lazyModal = lazyWithPreload(() => import('./components/ImageModal'))
+    
+    function App() {
+      const [showModal, setShowModal] = useState(false)
+    
+      useEffect(() => {
+          lazyModal.preload()
+          // factory pattern을 사용하지 않는다면 아래와 같이 직접 import
+          const imageModal = import('./component/ImageModal')
+      })
       
-          // factory pattern
-          function lazyWithPreload(lazyImport) {
-              const Component = React.lazy(lazyImport)
-              Component.preload = lazyImport
-              return Component
-          }
-      
-          // lazyLoad 대상이 되는 컴포넌트들을 선언
-          const lazyModal = lazyWithPreload(() => import('./components/ImageModal'))
-
-          function App() {
-              const [showModal, setShowModal] = useState(false)
-
-              useEffect(() => {
-                  lazyModal.preload()
-                  // factory pattern을 사용하지 않는다면 아래와 같이 직접 import
-                  const imageModal = import('./component/ImageModal')
-              })
-              
-              render (
-                  <div className="App">
-                    <Header />
-                        ...
-                    <Footer />
-                    <Suspense fallback={<div>Loading...</div>}>
-                        {showModal ? <LazyModal closeModal={() => { setShowModal(false) } }} /> : ''}
-                    </Suspense>
-                  </div>
-              )
-          }
-        ```
+      render (
+          <div className="App">
+            <Header />
+                ...
+            <Footer />
+            <Suspense fallback={<div>Loading...</div>}>
+                {showModal ? <LazyModal closeModal={() => { setShowModal(false) } }} /> : ''}
+            </Suspense>
+          </div>
+      )
+    }
+    ```
     - webpack 등의 번들러를 통한 번들된 리소스 활용
     
 > 렌더링 성능 최적화
 
 - css는 HTML 문서 최상단(`<head>` 아래), script 태그는 HTML 문서 최하단(`</body>` 직전)에 작성
-    ```
-    <head>
-        <link href="style.css" rel="stylesheet" />
-    </head>
-    <body>
-        <div>...</div>
-        <script src="app.js" type="text/javascript"></script>
-    </body>
-    ```
+  ```jsx
+  <head>
+    <link href="style.css" rel="stylesheet" />
+  </head>
+  <body>
+     <div>...</div>
+     <script src="app.js" type="text/javascript"></script>
+  </body>
+  ```
     **Why?**
    > 렌더 트리를 구성하기 위해서는 `DOM 트리`와 `CSSOM 트리`가 필요합니다.
     DOM 트리는 파싱 중 태그를 발견할 때마다 순차적 구성이 가능하나, CSSOM 트리는 CSS를 모두 해석해야 구성이 가능합니다.
