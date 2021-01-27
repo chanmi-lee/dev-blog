@@ -205,7 +205,7 @@ DCL, FP, FCP, LCP, L 등의 순서를 확인할 수 있으며 각각의 의미�
 
 (3) 이를 **점진적으로 개선**하는 노력이 필요합니다.
 
-개발자 도구 외에도 [webpack-bundle-analyzer](https://www.npmjs.com/package/webpack-bundle-analyzer) 등의 라이브러리를 활용하거나
+개발자 도구 외에도 [source-map-explorer](https://create-react-app.dev/docs/analyzing-the-bundle-size/), [webpack-bundle-analyzer](https://www.npmjs.com/package/webpack-bundle-analyzer), [cra-bundle-analyzer](https://github.com/svengau/cra-bundle-analyzer) (CRA에서 `eject` 없이 사용할 수 있어 앞의 두 방법에 비해 추천!) 등의 라이브러리를 활용하거나
 아래 사이트를 참고하는 방안도 고려해봄직 합니다.
 
 - [WEB PAGE TEST](https://www.webpagetest.org/)
