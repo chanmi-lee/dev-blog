@@ -123,40 +123,40 @@ DCL, FP, FCP, LCP, L 등의 순서를 확인할 수 있으며 각각의 의미�
     - 리소스 캐싱 ([MDN : HTTP Caching](https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching))
     - 이미지 Preload & Lazy load
     - 컴포넌트 Preloading
-    ```jsx
-    import React, { useState, useEffect, Suspense, lazy } from 'react'
-    
-    // factory pattern
-    function lazyWithPreload(lazyImport) {
-      const Component = React.lazy(lazyImport)
-      Component.preload = lazyImport
-      return Component
-    }
-    
-    // lazyLoad 대상이 되는 컴포넌트들을 선언
-    const lazyModal = lazyWithPreload(() => import('./components/ImageModal'))
-    
-    function App() {
-      const [showModal, setShowModal] = useState(false)
-    
-      useEffect(() => {
-          lazyModal.preload()
-          // factory pattern을 사용하지 않는다면 아래와 같이 직접 import
-          const imageModal = import('./component/ImageModal')
-      })
-      
-      render (
-          <div className="App">
-            <Header />
-                ...
-            <Footer />
-            <Suspense fallback={<div>Loading...</div>}>
-                {showModal ? <LazyModal closeModal={() => { setShowModal(false) } }} /> : ''}
-            </Suspense>
-          </div>
-      )
-    }
-    ```
+        ```jsx
+        import React, { useState, useEffect, Suspense, lazy } from 'react'
+        
+        // factory pattern
+        function lazyWithPreload(lazyImport) {
+          const Component = React.lazy(lazyImport)
+          Component.preload = lazyImport
+          return Component
+        }
+        
+        // lazyLoad 대상이 되는 컴포넌트들을 선언
+        const lazyModal = lazyWithPreload(() => import('./components/ImageModal'))
+        
+        function App() {
+          const [showModal, setShowModal] = useState(false)
+        
+          useEffect(() => {
+              lazyModal.preload()
+              // factory pattern을 사용하지 않는다면 아래와 같이 직접 import
+              const imageModal = import('./component/ImageModal')
+          })
+          
+          render (
+              <div className="App">
+                <Header />
+                    ...
+                <Footer />
+                <Suspense fallback={<div>Loading...</div>}>
+                    {showModal ? <LazyModal closeModal={() => { setShowModal(false) } }} /> : ''}
+                </Suspense>
+              </div>
+          )
+        }
+        ```
     - webpack 등의 번들러를 통한 번들된 리소스 활용
     
 > 렌더링 성능 최적화
