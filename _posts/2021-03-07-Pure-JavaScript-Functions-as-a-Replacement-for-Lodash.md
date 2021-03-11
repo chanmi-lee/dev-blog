@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Lodash를 대체하는 순수 자바스크립트 함수"
+title: "[번역] Lodash를 대체하는 순수 자바스크립트 함수"
 excerpt: "#JavaScript #vanillaJavaScript #lodash"
 categories: [글또, JavaScript, lodash]
 share: true
